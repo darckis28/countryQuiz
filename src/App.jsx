@@ -1,7 +1,7 @@
-import ButtonQuiz from "./components/ButtonQuiz";
+import { QUIZS } from "./data/quizs";
 import Circle from "./components/Circle";
 import Containner from "./components/Container";
-import QuizTitle from "./components/QuizTitle";
+import ContainerQuiz from "./components/ContainerQuiz";
 
 function App() {
   return (
@@ -17,15 +17,13 @@ function App() {
             <Circle>7</Circle> <Circle>8</Circle> <Circle>9</Circle>
             <Circle>10</Circle>
           </div>
-          <QuizTitle>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </QuizTitle>
-          <div className="grid grid-cols-2 gap-5">
-            <ButtonQuiz>15484</ButtonQuiz>
-            <ButtonQuiz>15484</ButtonQuiz>
-            <ButtonQuiz>15484</ButtonQuiz>
-            <ButtonQuiz>15484</ButtonQuiz>
-          </div>
+          {QUIZS.map((item, idx) => (
+            <ContainerQuiz
+              key={idx}
+              quiz={item.quiz}
+              options={item.options}
+            />
+          ))}
         </Containner>
       </main>
     </>
