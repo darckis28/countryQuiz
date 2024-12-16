@@ -11,19 +11,18 @@ function App() {
         className="min-h-screen  w-full bg-no-repeat bg-cover grid place-content-center"
       >
         <Containner>
-          <div className="grid grid-cols-7  gap-2  mb-5">
-            <Circle>1</Circle> <Circle>2</Circle> <Circle>3</Circle>
-            <Circle>4</Circle> <Circle>5</Circle> <Circle>6</Circle>
-            <Circle>7</Circle> <Circle>8</Circle> <Circle>9</Circle>
-            <Circle>10</Circle>
+          <div className="flex flex-wrap justify-center  gap-2  mb-5">
+            {QUIZS.map((item, idx) => (
+              <Circle
+                classname={"circle"}
+                key={idx}
+              >
+                {idx + 1}{" "}
+              </Circle>
+            ))}
           </div>
-          {QUIZS.map((item, idx) => (
-            <ContainerQuiz
-              key={idx}
-              quiz={item.quiz}
-              options={item.options}
-            />
-          ))}
+
+          <ContainerQuiz quizs={QUIZS} />
         </Containner>
       </main>
     </>

@@ -1,14 +1,29 @@
+import { useState } from "react";
 import ButtonQuiz from "./ButtonQuiz";
 import QuizTitle from "./QuizTitle";
+import { QUIZS } from "../data/quizs";
 
-const ContainerQuiz = ({ quiz, options }) => {
+const ContainerQuiz = ({ quizs }) => {
+  const [numberQuiz, setNumberQuiz] = useState(0);
+  const [score, setScore] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+
+  function checkQuiz(e) {
+    if (numberQuiz < QUIZS.length - 1) {
+      setNumberQuiz(numberQuiz + 1);
+    }
+  }
   return (
     <div>
-      {" "}
-      <QuizTitle>{quiz}</QuizTitle>
+      <QuizTitle>{quizs[numberQuiz]?.quiz}</QuizTitle>
       <div className="grid grid-cols-2 gap-5">
-        {options?.map((item, idx) => (
-          <ButtonQuiz key={idx}>{item}</ButtonQuiz>
+        {quizs[numberQuiz].options?.map((item, idx) => (
+          <ButtonQuiz
+            onClick={checkQuiz}
+            key={idx}
+          >
+            {item}
+          </ButtonQuiz>
         ))}
       </div>
     </div>

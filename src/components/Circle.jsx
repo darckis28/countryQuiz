@@ -1,6 +1,8 @@
-const Circle = ({ children }) => {
+const Circle = ({ children, classname }) => {
   return (
-    <div className="bg-gradient w-11 h-11 rounded-full grid place-content-center">
+    <div
+      className={`${classname} bg-blue-desing w-11 h-11 rounded-full grid place-content-center`}
+    >
       {children}
     </div>
   );
