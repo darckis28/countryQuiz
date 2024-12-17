@@ -20,6 +20,7 @@ const ContainerQuiz = ({
   function checkAnswer(answer, index) {
     if (numberQuiz + 1 == quizs.length) {
       setIsFinished(true);
+      setNumberQuiz(0);
       return;
     }
     setAnswered(true);
